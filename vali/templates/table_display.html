@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body class="body">
+        
+    <div class="header">
+        <a href="/" class="logo">Zcrations</a>
+        <div class="header-right">
+          <a href="/">Home</a>
+          <a href="/vali/add">ADD</a>
+          <a href="/vali/web">STOCKS</a>
+          
+          {% for category in categories %}
+<a href="/vali/category/{{ category.id}}/">{{ category.name }}</a>
+{% endfor %}
+        
+</div>
+</div>
+
+
+<table>
+  <tr>
+      <thead >
+          <th>
+              Id
+          </th>
+          <th>
+              Name
+          </th>
+          <th>
+              image
+          </th>
+          <TH>
+              Price
+          </TH>
+          <th>
+              descriptions
+          </th>
+          <th>
+             Category
+          </th>
+          <th>
+              Created on
+          </th>
+          <th>
+              ACTION
+          </th>
+      </thead>
+  </tr>
+  {% for i in products %} 
+  <tr>
+      <tbody >
+          
+          <td>
+              {{ i.id }}
+             
+          </td>
+          <td>
+              {{ i.name }}
+             
+          </td>
+          <td>
+              <img src="{{ i.image.url }}" width="40px" height="40px" alt="">
+          </td>
+          <td>
+          
+              {{ i.price }}
+          </td>
+          <td>
+              {{ i.description }}
+             
+          </td>
+          <td>
+              {{ i.category }}
+             
+          </td>
+          <td>
+              {{ i.created_at }}
+             
+          </td>
+          <td>
+              <a href="/vali/edit/{{ i.id }}/ ">Edit</a>
+              <a href="/vali/delete/{{ i.id }}/ ">Delete</a>
+          </td>
+          
+      </tbody>
+  </tr>
+  {% endfor %}
+
+
+</table>
+</body>                                         
+</html>
