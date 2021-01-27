@@ -1,5 +1,7 @@
 from .models import Productmodel
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+
 # class ProductCreateForm(forms.Form):
 #     name = forms.CharField(max_length=60)
 #     price=forms.IntegerField()
@@ -10,6 +12,10 @@ from django import forms
 #         if price<0:
 #             raise forms.ValidationError("invalid input")
 #         return price
+
+class Create_user(UserCreationForm):
+    class Meta:
+        fields = ['username','password','email']
 
 class Mform(forms.ModelForm):
 

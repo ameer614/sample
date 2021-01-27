@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 </head>
+
 <body class="body">
-        
-    <div class="header">
-        <a href="/" class="logo">Zcrations</a>
-        <div class="header-right">
-          <a href="/">Home</a>
-          <a href="/vali/add">ADD</a>
-          <a href="/vali/web">STOCKS</a>
-        
-        </div>
-      </div>
-      <div class="parallax">  </div>
-      {% block content %}
-  
-   {% endblock %}
-   {% block table %}
-   {% endblock %}
-  
-</body>                                         
+
+  <div class="header">
+    <a href="/" class="logo">Zcrations</a>
+    <div class="header-right">
+      <a href="/">Home</a>
+      <a href="/vali/add">ADD</a>
+      <a href="/vali/web">STOCKS</a>
+      {% if request.user.is_authenticated %}
+      <a href="/vali/logout">Log Out</a>
+      {% else %}
+      <a href="/vali/logout">Login</a>
+      <a href="/vali/create_user/">Signup</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="parallax"> </div>
+  {% block content %}
+
+  {% endblock %}
+  {% block table %}
+  {% endblock %}
+
+</body>
+
 </html>

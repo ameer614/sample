@@ -26,7 +26,10 @@ urlpatterns = [
     path('add/',views.create_prodect),
     path('edit/<int:id>/',views.update_prodect),
     path('delete/<int:id>/',views.delete_product),
-    path('test/',views.test)
+    path('test/',views.test),
+    path('create_user/',views.create_user),
+    path('login/',views.User_login),
+    path('logout/',views.user_logout)
 
 ]
 
